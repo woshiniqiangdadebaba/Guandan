@@ -1,0 +1,58 @@
+CardsWindow类：
+	explicit CardsWindow(QWidget *parent = 0);
+	//构造函数
+	QString set_name(int m);
+	设置玩家名的函数
+	QString card_color(OneCard m);
+	//设置牌的颜色的函数
+	void on_start_clicked();
+	//开始
+	void on_discard_clicked();
+	//出牌
+	void on_pass_clicked();
+	//过
+	void on_setcard_clicked();
+	//整理
+	void on_setbackcard_clicked();
+	//恢复
+	void on_straight_flush_clicked();
+	//同花顺
+	void on_jingong_clicked();
+	//第一次进贡
+	void on_huangong_clicked();
+	//第一次还贡
+	void on_jingong2_clicked();
+	//第二次进贡
+	void on_huangong2_clicked();
+	//第二次还贡
+	void timerUpDate();
+	//时间溢出的槽函数
+	void changeplayer();
+	//倒计时结束切换玩家
+OneCard类：
+	void make_card(int,int);
+	//初始化单张牌
+Player类：
+	void shuffle_cards();
+	//洗牌
+	void make_player(QList <OneCard> cardarray[],int);
+	//发牌
+	void sort_player(QList <OneCard> cardarray[]);
+	//排序手牌
+JudgeCards类：
+	void set_special_card(int);
+	//将CardsWindow类中的级牌设置到JudgeCards类
+	bool is_bomb(QList<OneCard> cards);
+	//判断炸弹
+	int is_straight(QList<OneCard> cards);
+	//判断顺子
+	int is_straight_flush(QList<OneCard> cards);
+	//判断同花顺
+	int is_sandaier(QList<OneCard> cards);
+	//判断三带二
+	int is_liandui(QList<OneCard> cards);
+	//判断连对
+	int is_gangban(QList<OneCard> cards);
+	//判断钢板
+	bool is_right_dis(QList<OneCard> card_before,QList<OneCard> 	card_now, int special_card);
+	//判断出牌是否合理
